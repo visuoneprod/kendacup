@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenda Cup 2026 | Site Oficial</title>
+    <style>
+        /* --- ESTILOS BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f9f9f9; color: #222; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --kenda-red: #e31e24;
+            --kenda-black: #111111;
+        }
+
+        /* --- LOGO --- */
+        header {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--kenda-red);
+        }
+        .logo { max-height: 90px; width: auto; }
+
+        /* --- BANNERS RESPONSIVOS --- */
+        .hero-banner { width: 100%; display: block; line-height: 0; }
+        .hero-banner img { width: 100%; height: auto; }
+
+        /* --- CTA INSCREVA-SE --- */
+        .cta-box {
+            background: var(--kenda-black);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .btn-inscreva {
+            display: inline-block;
+            background: var(--kenda-red);
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.4rem;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(227, 30, 36, 0.4);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- CONTAGEM REGRESSIVA --- */
+        .timer-section {
+            background: #222;
+            color: #fff;
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+        }
+        .timer-unit { min-width: 70px; }
+        .timer-unit span { display: block; font-size: 2rem; font-weight: bold; color: var(--kenda-red); }
+        .timer-unit label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
+
+        /* --- NAVEGAÇÃO --- */
+        nav {
+            background: #333;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        nav ul li a:hover { background: var(--kenda-red); }
+
+        /* --- SEÇÕES --- */
+        section { padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; color: var(--kenda-black); }
+        p { line-height: 1.8; margin-bottom: 20px; color: #555; }
+
+        /* --- RODAPÉ --- */
+        footer { background: #111; color: #777; padding: 40px; text-align: center; font-size: 0.8rem; }
+
+        /* --- AJUSTES MOBILE --- */
+        @media (max-width: 768px) {
+            .btn-inscreva { width: 90%; font-size: 1.1rem; }
+            nav ul li { width: 50%; }
+            nav ul li a { border: 1px solid #444; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/logo.png" alt="Kenda Cup Logo" class="logo">
+    </header>
+
+    <div class="hero-banner">
+        <picture>
+            <source media="(max-width: 768px)" srcset="images/bannercelular.png">
+            <source media="(min-width: 769px)" srcset="images/bannerpc.png">
+            <img src="images/bannerpc.png" alt="Kenda Cup Banner">
+        </picture>
+    </div>
+
+    <div class="cta-box">
+        <a href="SEU_LINK_AQUI" class="btn-inscreva">Quero me Inscrever</a>
+    </div>
+
+    <div class="timer-section">
+        <div class="timer-unit"><span id="days">00</span><label>Dias</label></div>
+        <div class="timer-unit"><span id="hours">00</span><label>Horas</label></div>
+        <div class="timer-unit"><span id="mins">00</span><label>Min</label></div>
+        <div class="timer-unit"><span id="secs">00</span><label>Seg</label></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre a Prova</a></li>
+            <li><a href="#regulamento">Regulamento</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="sobre">
+        <h2>Sobre a Prova</h2>
+        <p>A <strong>Kenda Cup 2026</strong> é mais do que uma competição, é uma celebração do Mountain Bike nacional. Prepare seu equipamento para trilhas técnicas, subidas épicas e toda a estrutura que só o maior circuito da região oferece.</p>
+    </section>
+
+    <section id="regulamento" style="background:#eee; max-width: 100%;">
+        <div style="max-width:900px; margin: 0 auto;">
+            <h2>Regulamento 2026</h2>
+            <p>Confira todas as normas técnicas, categorias e itens obrigatórios para a sua segurança e performance.</p>
+            <a href="SEU_PDF_AQUI.pdf" target="_blank" style="color: var(--kenda-red); font-weight: bold;">Clique para baixar o PDF</a>
+        </div>
+    </section>
+
+    <section id="eventos">
+        <h2>Próximos Eventos</h2>
+        <p>Acompanhe o calendário oficial e não perca nenhuma etapa da Kenda Cup em 2026.</p>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Dúvidas? Entre em contato com nossa equipe organizacional:</p>
+        <p><strong>Email:</strong> suporte@kendacup.com.br</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kenda Cup - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Defina a data da prova abaixo (Ano, Mês-1, Dia)
+        // Exemplo: 20 de Março de 2026 -> (2026, 2, 20)
+        const countDate = new Date(2026, 0, 12, 0, 0, 0).getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+
+            document.getElementById('days').innerText = textDay > 0 ? textDay : 0;
+            document.getElementById('hours').innerText = textHour > 0 ? textHour : 0;
+            document.getElementById('mins').innerText = textMinute > 0 ? textMinute : 0;
+            document.getElementById('secs').innerText = textSecond > 0 ? textSecond : 0;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
