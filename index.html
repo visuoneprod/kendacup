@@ -92,7 +92,52 @@
         }
         nav ul li a:hover { background: var(--kenda-red); }
 
-        /* --- SEÇÕES --- */
+        /* --- SEÇÃO DE ARRASTAR (PERCURSO) --- */
+        .percurso-container {
+            padding: 60px 0;
+            background: #fff;
+            text-align: center;
+        }
+        .slider-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            padding-bottom: 20px;
+        }
+        .slider-wrapper::-webkit-scrollbar { height: 8px; }
+        .slider-wrapper::-webkit-scrollbar-thumb { background: var(--kenda-red); border-radius: 10px; }
+        
+        .slide {
+            min-width: 85%;
+            margin-left: 15px;
+            scroll-snap-align: center;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000;
+        }
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            opacity: 0.7;
+            display: block;
+        }
+        .slide-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: #fff;
+            text-align: left;
+        }
+        .slide-text h3 { font-size: 1.5rem; text-transform: uppercase; color: var(--kenda-red); }
+        .slide-text p { color: #fff; font-weight: bold; font-size: 1.1rem; margin: 0; }
+
+        /* --- SEÇÕES GERAIS --- */
         section { padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
         h2 { font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; color: var(--kenda-black); }
         p { line-height: 1.8; margin-bottom: 20px; color: #555; }
@@ -100,11 +145,15 @@
         /* --- RODAPÉ --- */
         footer { background: #111; color: #777; padding: 40px; text-align: center; font-size: 0.8rem; }
 
-        /* --- AJUSTES MOBILE --- */
+        @media (min-width: 769px) {
+            .slide { min-width: 400px; }
+        }
+
         @media (max-width: 768px) {
             .btn-inscreva { width: 90%; font-size: 1.1rem; }
             nav ul li { width: 50%; }
             nav ul li a { border: 1px solid #444; }
+            .slide { min-width: 90%; }
         }
     </style>
 </head>
@@ -135,7 +184,8 @@
 
     <nav>
         <ul>
-            <li><a href="#sobre">Sobre a Prova</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#percurso">O Percurso</a></li>
             <li><a href="#regulamento">Regulamento</a></li>
             <li><a href="#eventos">Eventos</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -146,6 +196,37 @@
         <h2>Sobre a Prova</h2>
         <p>A <strong>Kenda Cup 2026</strong> é mais do que uma competição, é uma celebração do Mountain Bike nacional. Prepare seu equipamento para trilhas técnicas, subidas épicas e toda a estrutura que só o maior circuito da região oferece.</p>
     </section>
+
+    <div class="percurso-container" id="percurso">
+        <h2>Encare o Desafio</h2>
+        <p>Arraste para o lado e sinta o que te espera no percurso!</p>
+        
+        <div class="slider-wrapper">
+            <div class="slide">
+                <img src="images/singletrack.jpg" alt="Trilha Técnica">
+                <div class="slide-text">
+                    <h3>Que tal encarar isso?</h3>
+                    <p>Singletracks que vão testar sua técnica ao limite.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="images/subida.jpg" alt="Subida íngreme">
+                <div class="slide-text">
+                    <h3>Onde os brutos se encontram</h3>
+                    <p>Subidas épicas com o visual que você merece.</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <img src="images/descida.jpg" alt="Reta Final">
+                <div class="slide-text">
+                    <h3>Sinta a Adrenalina</h3>
+                    <p>Velocidade e adrenalina pura em cada descida.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="regulamento" style="background:#eee; max-width: 100%;">
         <div style="max-width:900px; margin: 0 auto;">
@@ -171,25 +252,17 @@
     </footer>
 
     <script>
-        // Defina a data da prova abaixo (Ano, Mês-1, Dia)
-        // Exemplo: 20 de Março de 2026 -> (2026, 2, 20)
         const countDate = new Date(2026, 0, 12, 0, 0, 0).getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
             const gap = countDate - now;
-
             const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
-            const textDay = Math.floor(gap / day);
-            const textHour = Math.floor((gap % day) / hour);
-            const textMinute = Math.floor((gap % hour) / minute);
-            const textSecond = Math.floor((gap % minute) / second);
-
-            document.getElementById('days').innerText = textDay > 0 ? textDay : 0;
-            document.getElementById('hours').innerText = textHour > 0 ? textHour : 0;
-            document.getElementById('mins').innerText = textMinute > 0 ? textMinute : 0;
-            document.getElementById('secs').innerText = textSecond > 0 ? textSecond : 0;
+            document.getElementById('days').innerText = Math.floor(gap / day);
+            document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
+            document.getElementById('mins').innerText = Math.floor((gap % hour) / minute);
+            document.getElementById('secs').innerText = Math.floor((gap % minute) / second);
         }
 
         setInterval(updateTimer, 1000);
