@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenda Cup 2026 | Site Oficial</title>
+    <title>Kenda Cup 2026 | Black Edition 5 Years</title>
     <style>
         /* --- ESTILOS BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
@@ -13,9 +13,10 @@
         :root {
             --kenda-red: #e31e24;
             --kenda-black: #111111;
+            --kenda-gray: #333;
         }
 
-        /* --- LOGO --- */
+        /* --- HEADER --- */
         header {
             background: #fff;
             padding: 20px;
@@ -23,16 +24,22 @@
             border-bottom: 3px solid var(--kenda-red);
         }
         .logo { max-height: 90px; width: auto; }
+        .main-title { font-size: 1.5rem; color: var(--kenda-black); margin-top: 10px; text-transform: uppercase; font-weight: 900; }
+        .sub-title { font-size: 1rem; color: #555; font-weight: normal; margin-top: 5px; }
 
-        /* --- BANNERS RESPONSIVOS --- */
+        /* --- BANNERS --- */
         .hero-banner { width: 100%; display: block; line-height: 0; }
         .hero-banner img { width: 100%; height: auto; }
 
-        /* --- CTA INSCREVA-SE --- */
+        /* --- CTA BOX (BOTÕES) --- */
         .cta-box {
             background: var(--kenda-black);
             padding: 40px 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
         }
         .btn-inscreva {
             display: inline-block;
@@ -40,13 +47,28 @@
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.4rem;
-            padding: 18px 45px;
+            font-size: 1.2rem;
+            padding: 15px 30px;
             border-radius: 50px;
             text-transform: uppercase;
             transition: 0.3s;
             box-shadow: 0 0 20px rgba(227, 30, 36, 0.4);
             animation: pulse 2s infinite;
+            width: 100%;
+            max-width: 300px;
+        }
+        .btn-whats {
+            display: inline-block;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            width: 100%;
+            max-width: 300px;
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -54,106 +76,60 @@
             100% { transform: scale(1); }
         }
 
-        /* --- CONTAGEM REGRESSIVA --- */
+        /* --- TIMER --- */
         .timer-section {
             background: #222;
             color: #fff;
             padding: 30px 10px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             text-align: center;
         }
-        .timer-unit { min-width: 70px; }
-        .timer-unit span { display: block; font-size: 2rem; font-weight: bold; color: var(--kenda-red); }
+        .timer-unit span { display: block; font-size: 1.8rem; font-weight: bold; color: var(--kenda-red); }
         .timer-unit label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
 
-        /* --- NAVEGAÇÃO --- */
-        nav {
-            background: #333;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 15px 20px;
-            display: block;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
+        /* --- NAV --- */
+        nav { background: #333; position: sticky; top: 0; z-index: 999; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav ul li a { color: #fff; text-decoration: none; padding: 15px 15px; display: block; font-size: 0.85rem; text-transform: uppercase; font-weight: bold; }
         nav ul li a:hover { background: var(--kenda-red); }
 
-        /* --- SEÇÃO DE ARRASTAR (PERCURSO) --- */
-        .percurso-container {
-            padding: 60px 0;
-            background: #fff;
-            text-align: center;
-        }
-        .slider-wrapper {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            margin: 20px 0;
-            padding-bottom: 20px;
-        }
-        .slider-wrapper::-webkit-scrollbar { height: 8px; }
-        .slider-wrapper::-webkit-scrollbar-thumb { background: var(--kenda-red); border-radius: 10px; }
-        
-        .slide {
-            min-width: 85%;
-            margin-left: 15px;
-            scroll-snap-align: center;
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            background: #000;
-        }
-        .slide img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            opacity: 0.7;
-            display: block;
-        }
-        .slide-text {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            color: #fff;
-            text-align: left;
-        }
-        .slide-text h3 { font-size: 1.5rem; text-transform: uppercase; color: var(--kenda-red); }
-        .slide-text p { color: #fff; font-weight: bold; font-size: 1.1rem; margin: 0; }
-
         /* --- SEÇÕES GERAIS --- */
-        section { padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-        h2 { font-size: 2rem; margin-bottom: 20px; text-transform: uppercase; color: var(--kenda-black); }
-        p { line-height: 1.8; margin-bottom: 20px; color: #555; }
+        section { padding: 50px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
+        h2 { font-size: 1.8rem; margin-bottom: 20px; text-transform: uppercase; color: var(--kenda-black); border-bottom: 2px solid var(--kenda-red); display: inline-block; padding-bottom: 5px; }
+        p { line-height: 1.6; margin-bottom: 15px; color: #444; }
+        
+        /* --- CARDS & TABELAS --- */
+        .card-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
+        .info-card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex: 1 1 250px; text-align: left; }
+        .info-card h3 { color: var(--kenda-red); margin-bottom: 10px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: var(--kenda-black); color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
 
-        /* --- RODAPÉ --- */
-        footer { background: #111; color: #777; padding: 40px; text-align: center; font-size: 0.8rem; }
+        /* --- PERCURSO SLIDER --- */
+        .percurso-container { padding: 40px 0; background: #fff; text-align: center; }
+        .slider-wrapper { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin: 20px 0; padding-bottom: 10px; }
+        .slide { min-width: 85%; margin-left: 15px; scroll-snap-align: center; position: relative; border-radius: 15px; overflow: hidden; height: 300px; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-text { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: #fff; padding: 15px; text-align: left; }
+
+        /* --- FAQ --- */
+        details { background: white; margin-bottom: 10px; padding: 15px; border-radius: 5px; text-align: left; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        summary { font-weight: bold; cursor: pointer; color: var(--kenda-black); }
+        details p { margin-top: 10px; font-size: 0.95rem; }
+
+        /* --- FOOTER BOTÕES --- */
+        .footer-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .btn-doc { background: #555; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 0.9rem; }
+        footer { background: #111; color: #777; padding: 40px 20px; text-align: center; font-size: 0.8rem; }
 
         @media (min-width: 769px) {
-            .slide { min-width: 400px; }
-        }
-
-        @media (max-width: 768px) {
-            .btn-inscreva { width: 90%; font-size: 1.1rem; }
-            nav ul li { width: 50%; }
-            nav ul li a { border: 1px solid #444; }
-            .slide { min-width: 90%; }
+            .cta-box { flex-direction: row; justify-content: center; }
+            .slide { min-width: 400px; height: 400px; }
         }
     </style>
 </head>
@@ -161,6 +137,8 @@
 
     <header>
         <img src="images/logo.png" alt="Kenda Cup Logo" class="logo">
+        <h1 class="main-title">Kenda Cup Championship 2026<br>Black Edition 5 Years</h1>
+        <p class="sub-title">O maior desafio de Mountain Bike do Brasil.</p>
     </header>
 
     <div class="hero-banner">
@@ -172,7 +150,8 @@
     </div>
 
     <div class="cta-box">
-        <a href="SEU_LINK_AQUI" class="btn-inscreva">Quero me Inscrever</a>
+        <a href="https://www.atletis.com.br" target="_blank" class="btn-inscreva">Inscreva-se Agora</a>
+        <a href="https://wa.me/5535999924484" target="_blank" class="btn-whats">Fale Conosco</a>
     </div>
 
     <div class="timer-section">
@@ -185,84 +164,183 @@
     <nav>
         <ul>
             <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#percurso">O Percurso</a></li>
-            <li><a href="#regulamento">Regulamento</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#inscricoes">Inscrições</a></li>
+            <li><a href="#calendario">Calendário</a></li>
+            <li><a href="#percurso">Percurso</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
         </ul>
     </nav>
 
     <section id="sobre">
         <h2>Sobre a Prova</h2>
-        <p>A <strong>Kenda Cup 2026</strong> é mais do que uma competição, é uma celebração do Mountain Bike nacional. Prepare seu equipamento para trilhas técnicas, subidas épicas e toda a estrutura que só o maior circuito da região oferece.</p>
+        <p>O <strong>KENDA CUP CHAMPIONSHIP 2026 – BLACK EDITION 5 YEARS</strong> é um campeonato de Mountain Bike (MTB) regido pelas normas da UCI e CBC.</p>
+        <div class="card-container">
+            <div class="info-card">
+                <h3>Formato</h3>
+                <p>Maratona de um dia (domingos) com classificação cumulativa em 4 etapas.</p>
+            </div>
+            <div class="info-card">
+                <h3>Categorias [cite: 33]</h3>
+                <p><strong>PRÓ:</strong> 50km | <strong>SPORT:</strong> 40km<br><strong>LIGHT:</strong> 30km | <strong>E-BIKE:</strong> 50km</p>
+            </div>
+            <div class="info-card">
+                <h3>Kit Atleta [cite: 39]</h3>
+                <p>Inclui: Seguro, sacochila, numberplate, abraçadeira, vale recovery e brindes.</p>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">*Obrigatório uso de capacete e calçado fechado.</p>
+    </section>
+
+    <section id="inscricoes" style="background: #fff;">
+        <h2>Inscrições e Valores</h2>
+        <p>Garanta sua vaga nos preços promocionais. As inscrições abrem em <strong>12 de janeiro de 2026</strong>.</p>
+        <div class="card-container">
+            <div class="info-card" style="text-align: center; border: 2px solid var(--kenda-red);">
+                <h3>1º Lote</h3>
+                <p style="font-size: 1.5rem; font-weight: bold;">R$ 169,00</p>
+                <p>Vagas Limitadas</p>
+            </div>
+            <div class="info-card" style="text-align: center;">
+                <h3>2º Lote</h3>
+                <p style="font-size: 1.5rem; font-weight: bold;">R$ 189,00</p>
+            </div>
+            <div class="info-card" style="text-align: center;">
+                <h3>3º Lote</h3>
+                <p style="font-size: 1.5rem; font-weight: bold;">R$ 219,00</p>
+            </div>
+        </div>
+        <p style="margin-top: 15px;"><em>Descontos para equipes acima de 6 atletas (15% off).</em></p>
+        <a href="https://www.atletis.com.br" class="btn-inscreva" style="margin-top: 20px; font-size: 1rem;">Ir para Atletis.com.br</a>
+    </section>
+
+    <section id="calendario">
+        <h2>Calendário 2026</h2>
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Cidade / Local</th>
+                        <th>Distâncias (Aprox.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>14 e 15 de março</td>
+                        <td>Águas de Lindóia, SP</td>
+                        <td>PRÓ (50km), SPORT (40km)</td>
+                    </tr>
+                    <tr>
+                        <td>16 e 17 de maio</td>
+                        <td>Monte Sião, MG</td>
+                        <td>PRÓ (50km), SPORT (40km)</td>
+                    </tr>
+                    <tr>
+                        <td>04 e 05 de julho</td>
+                        <td>Jacutinga, MG</td>
+                        <td>PRÓ (50km), SPORT (40km)</td>
+                    </tr>
+                    <tr>
+                        <td>12 e 13 de setembro</td>
+                        <td>Bueno Brandão, MG</td>
+                        <td>PRÓ (50km), SPORT (40km)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <div class="percurso-container" id="percurso">
-        <h2>Encare o Desafio</h2>
-        <p>Arraste para o lado e sinta o que te espera no percurso!</p>
+        <h2>O Desafio</h2>
+        <p>Arraste para o lado. Percursos inéditos em todas as etapas! [cite: 31]</p>
         
         <div class="slider-wrapper">
             <div class="slide">
                 <img src="images/singletrack.jpg" alt="Trilha Técnica">
-                <div class="slide-text">
-                    <h3>Que tal encarar isso?</h3>
-                    <p>Singletracks que vão testar sua técnica ao limite.</p>
-                </div>
+                <div class="slide-text"><h3>Trilhas Inéditas</h3><p>Sem reconhecimento prévio. Pura estratégia.</p></div>
             </div>
-
             <div class="slide">
                 <img src="images/subida.jpg" alt="Subida íngreme">
-                <div class="slide-text">
-                    <h3>Onde os brutos se encontram</h3>
-                    <p>Subidas épicas com o visual que você merece.</p>
-                </div>
+                <div class="slide-text"><h3>Desafio Físico</h3><p>Acumulado de altimetria desafiador.</p></div>
             </div>
-
             <div class="slide">
                 <img src="images/descida.jpg" alt="Reta Final">
-                <div class="slide-text">
-                    <h3>Sinta a Adrenalina</h3>
-                    <p>Velocidade e adrenalina pura em cada descida.</p>
-                </div>
+                <div class="slide-text"><h3>Adrenalina</h3><p>Estradas rurais e singletracks privados.</p></div>
             </div>
         </div>
+        <p style="font-size: 0.9rem; color: red; font-weight: bold;">Nota: Não haverá liberação de arquivo GPX antecipado[cite: 32].</p>
     </div>
 
-    <section id="regulamento" style="background:#eee; max-width: 100%;">
-        <div style="max-width:900px; margin: 0 auto;">
-            <h2>Regulamento 2026</h2>
-            <p>Confira todas as normas técnicas, categorias e itens obrigatórios para a sua segurança e performance.</p>
-            <a href="SEU_PDF_AQUI.pdf" target="_blank" style="color: var(--kenda-red); font-weight: bold;">Clique para baixar o PDF</a>
+    <section id="extras" style="background: #fff;">
+        <h2>Atividades de Sábado</h2>
+        <div class="card-container">
+            <div class="info-card">
+                <h3>Taça Kenda XCO [cite: 63]</h3>
+                <p>Cross Country Olímpico exclusivo na abertura (14 de março). Inscrição à parte.</p>
+            </div>
+            <div class="info-card">
+                <h3>Absolute Kids [cite: 66]</h3>
+                <p>Para crianças de 04 a 12 anos. Gratuito. Inscrição no local.</p>
+            </div>
+            <div class="info-card">
+                <h3>Batalha de Grau [cite: 69]</h3>
+                <p>Competição de manobras. Gratuito. Sistema eliminatório.</p>
+            </div>
         </div>
     </section>
 
-    <section id="eventos">
-        <h2>Próximos Eventos</h2>
-        <p>Acompanhe o calendário oficial e não perca nenhuma etapa da Kenda Cup em 2026.</p>
-    </section>
+    <section id="faq">
+        <h2>Dúvidas Frequentes</h2>
+        
+        <details>
+            <summary>Qual a idade da minha categoria?</summary>
+            <p>Considera-se a idade que o atleta completará em 31 de dezembro de 2026. [cite: 85]</p>
+        </details>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Dúvidas? Entre em contato com nossa equipe organizacional:</p>
-        <p><strong>Email:</strong> suporte@kendacup.com.br</p>
+        <details>
+            <summary>Posso ter o arquivo GPX antes?</summary>
+            <p>Não. Para garantir o ineditismo e a segurança, não haverá divulgação antecipada do GPX e nem reconhecimento prévio do trajeto da maratona. [cite: 92]</p>
+        </details>
+
+        <details>
+            <summary>Tem reembolso em caso de desistência?</summary>
+            <p>A taxa não é reembolsável. Você pode transferir a vaga até 04 dias úteis antes do evento. [cite: 88]</p>
+        </details>
+
+        <details>
+            <summary>Onde retiro meu Kit?</summary>
+            <p>Na secretaria do evento no sábado (14h-18h) ou domingo a partir das 6h. Obrigatório doação de 1kg de alimento ou R$ 10,00. [cite: 106]</p>
+        </details>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kenda Cup - Todos os direitos reservados.</p>
+        <div class="footer-buttons">
+            <a href="#" class="btn-doc">REGULAMENTO 2026 (PDF)</a>
+            <a href="#" class="btn-doc">START LIST (PDF)</a>
+            <a href="#" class="btn-doc">RESULTADOS (PDF)</a>
+        </div>
+        <p>&copy; 2026 Kenda Cup Championship. Todos os direitos reservados.</p>
+        <p>Contato: suporte@kendacup.com.br</p>
     </footer>
 
     <script>
-        const countDate = new Date(2026, 0, 12, 0, 0, 0).getTime();
+        // Data da primeira prova: 14 de Março de 2026 
+        // Mês começa em 0 no JS, então Março = 2
+        const countDate = new Date(2026, 2, 14, 0, 0, 0).getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
             const gap = countDate - now;
             const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
 
-            document.getElementById('days').innerText = Math.floor(gap / day);
-            document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
-            document.getElementById('mins').innerText = Math.floor((gap % hour) / minute);
-            document.getElementById('secs').innerText = Math.floor((gap % minute) / second);
+            if (gap > 0) {
+                document.getElementById('days').innerText = Math.floor(gap / day);
+                document.getElementById('hours').innerText = Math.floor((gap % day) / hour);
+                document.getElementById('mins').innerText = Math.floor((gap % hour) / minute);
+                document.getElementById('secs').innerText = Math.floor((gap % minute) / second);
+            } else {
+                document.querySelector('.timer-section').innerHTML = "<h2>É HOJE!</h2>";
+            }
         }
 
         setInterval(updateTimer, 1000);
